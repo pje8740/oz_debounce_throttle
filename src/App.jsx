@@ -26,22 +26,29 @@ function App() {
 
   const handleDebounceSearch = useCallback(
     debounce((value) => {
-      console.log("🕒 Debounce 검색 실행:", value);
+      console.log("Debounce 검색 실행:", value);
       setSearchString(value);
     }, 1000),
     []
   );
   const handleThrottleSearch = useCallback(
     throttle((value) => {
-      console.log("⚡ Throttle 검색 실행:", value);
+      console.log("Throttle 검색 실행:", value);
       setSearchString(value);
     }, 1000),
     []
   );
 
-  const handleChange = (event) => {
-    setQuery(event.target.value);
-    console.log("검색 쿼리:", event.target.value);
+  const handleDebounceChange = (event) => {
+    const value = event.target.value;
+    setQuery(value);
+    handleDebounceSearch(value);
+  };
+
+  const handleThrottleChange = (event) => {
+    const value = event.target.value;
+    setQuery(value);
+    handleThrottleSearch(value);
   };
 
   return (
