@@ -63,7 +63,7 @@ function App() {
         <input
           type="text"
           placeholder="Debounce를 이용한 검색..."
-          onChange={handleChange}
+          onChange={handleDebounceChange}
         />
       </div>
       <div>
@@ -71,7 +71,7 @@ function App() {
         <input
           type="text"
           placeholder="Throttle을 이용한 검색..."
-          onChange={handleChange}
+          onChange={handleThrottleChange}
         />
       </div>
       <p>{searchString}</p>
