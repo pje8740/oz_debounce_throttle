@@ -18,6 +18,17 @@ function App() {
     console.log("검색 쿼리:", event.target.value);
   };
 
+  function throttle(fn, delay) {
+    let lastTime = 0;
+    return (...args) => {
+      const now = new Date().getTime();
+      if (now - lastTime >= delay) {
+        fn(...args);
+        lastTime = now;
+      }
+    };
+  }
+
   return (
     <div className="container">
       <h1>
