@@ -1,5 +1,13 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import "./App.css";
+
+function debounce(fn, delay) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), delay);
+  };
+}
 
 function App() {
   const [query, setQuery] = useState("");
